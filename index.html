@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>FEPAES | Programas de Entrenamiento 2026-2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--r:#D21034;--a:#005293;--g:#f4f6f9;--t:#333;--b:#dde3ea}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:var(--g);color:var(--t)}
+header{background:linear-gradient(135deg,var(--a),#003f73);color:#fff;padding:32px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:6px solid var(--r);flex-wrap:wrap;gap:16px}
+.hl{width:220px;height:auto}
+.hp{width:220px;height:70px;background:rgba(255,255,255,.1);border:2px dashed rgba(255,255,255,.35);border-radius:8px;display:none;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:11px}
+.ht{text-align:right}
+.ht h1{font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.ht h2{font-size:12px;font-weight:400;color:rgba(255,255,255,.65);margin-top:4px}
+.ht .mg{display:inline-block;background:var(--r);color:#fff;padding:4px 12px;border-radius:16px;font-size:11px;font-weight:700;margin-top:8px;text-transform:uppercase}
+nav{background:#fff;display:flex;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.07);position:sticky;top:0;z-index:100;flex-wrap:wrap}
+nav button{background:none;border:none;padding:14px 20px;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--t);text-transform:uppercase;letter-spacing:.4px;border-bottom:4px solid transparent;transition:all .2s}
+nav button:hover{background:var(--g);color:var(--a)}
+nav button.on{color:var(--r);border-bottom-color:var(--r);background:var(--g)}
+main{max-width:1060px;margin:30px auto;padding:0 24px 50px}
+.tp{display:none}.tp.on{display:block;animation:fi .3s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.dt{background:linear-gradient(90deg,var(--r),#a00d29);color:#fff;padding:14px 22px;border-radius:10px;font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:22px;display:flex;align-items:center;gap:10px;box-shadow:0 3px 10px rgba(210,16,52,.2)}
+.ex{background:#fff;border-radius:12px;border-left:6px solid var(--a);padding:24px 28px;margin-bottom:22px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.ex h2{font-size:16px;font-weight:800;color:var(--a);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--b)}
+.ex p,.s p{font-size:13px;line-height:1.7;color:#555;margin-bottom:8px}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:14px}
+.sc{background:var(--g);border-radius:8px;padding:12px 14px;border-top:3px solid var(--r)}
+.sc .l{font-size:10px;font-weight:700;color:var(--r);text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px}
+.sc .v{font-size:12px;font-weight:600;color:var(--t);line-height:1.3}
+.s{background:#fff;border-radius:12px;padding:24px 28px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.s h2{font-size:15px;font-weight:800;color:var(--a);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--b)}
+.s h3{font-size:12.5px;font-weight:700;color:var(--r);margin:18px 0 8px;text-transform:uppercase;letter-spacing:.4px}
+ul{padding-left:18px;margin-bottom:10px}
+ul li{font-size:13px;line-height:1.8;color:#555}
+ul li strong{color:var(--t)}
+.tw{overflow-x:auto;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+thead tr{background:linear-gradient(90deg,var(--a),#0066b3);color:#fff}
+thead th{padding:10px 12px;text-align:left;font-weight:700;text-transform:uppercase;font-size:10.5px;letter-spacing:.4px}
+tbody tr:nth-child(even){background:#f0f4f8}
+tbody tr:hover{background:#e3ecf5}
+tbody td{padding:9px 12px;border-bottom:1px solid var(--b);color:#444;vertical-align:top}
+.to{color:#fff;padding:2px 8px;border-radius:10px;font-size:9.5px;font-weight:700;white-space:nowrap}
+.ob{background:var(--r)}.su{background:#f0a500}.fl{background:var(--a)}
+.mg2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.mc{background:var(--g);border-radius:8px;padding:14px;text-align:center;border-bottom:3px solid var(--a)}
+.mc .mn{font-size:20px;font-weight:800;color:var(--a)}
+.mc .ml{font-size:10px;font-weight:600;color:#777;text-transform:uppercase;margin-top:4px;line-height:1.3}
+.cb{background:linear-gradient(135deg,#fff5f5,#fff);border:2px solid var(--r);border-radius:8px;padding:14px 18px;margin-top:10px}
+.nb{background:linear-gradient(135deg,#f0f5ff,#fff);border-left:4px solid var(--a);border-radius:8px;padding:14px 18px;margin-top:10px}
+.hb{background:linear-gradient(135deg,#e8f4fd,#fff);border:2px solid var(--a);border-radius:8px;padding:14px 18px;margin-top:10px}
+.fe{background:linear-gradient(135deg,#fff8e1,#fff);border:2px solid #f0a500;border-radius:8px;padding:14px 18px;margin-top:10px}
+footer{background:linear-gradient(135deg,var(--a),#003f73);color:rgba(255,255,255,.65);text-align:center;padding:22px 16px;font-size:11px;border-top:4px solid var(--r);margin-top:30px}
+footer strong{color:#fff}
+@media(max-width:680px){header{flex-direction:column;align-items:flex-start;padding:20px 16px}.ht{text-align:left}nav button{padding:10px 10px;font-size:10px}main{padding:0 12px 30px}.s,.ex{padding:18px 14px}.dt{font-size:14px;padding:12px 14px}}
+</style>
+</head>
+<body>
+<header>
+<img src="logo-fepaes-completo.png" alt="FEPAES" class="hl" onerror="this.style.display='none';document.getElementById('lp').style.display='flex';"/>
+<div class="hp" id="lp">Logo FEPAES</div>
+<div class="ht">
+<h1>Programa Nacional de Entrenamiento</h1>
+<h2>Temporada 2026 – 2027 · Federación Panameña de Esports</h2>
+<span class="mg">National Team Manager · Aníbal Hernández</span>
+</div>
+</header>
+<nav>
+<button class="on" onclick="ot(event,'t1')">🎮 League of Legends</button>
+<button onclick="ot(event,'t2')">🥊 Street Fighter 6</button>
+<button onclick="ot(event,'t3')">🏎️ Sim Racing · GT7</button>
+<button onclick="ot(event,'t4')">⚽ eFootball</button>
+</nav>
+<main>
+
+<!-- ===== TAB 1: LEAGUE OF LEGENDS ===== -->
+<div class="tp on" id="t1">
+<div class="dt"><span style="font-size:24px">🎮</span> División League of Legends · 2026–2027</div>
+<div class="ex">
+<h2>📋 Resumen Ejecutivo</h2>
+<p>Programa oficial de la <strong>División League of Legends</strong> de <strong>FEPAES</strong> para la temporada <strong>2026–2027</strong>. Combina práctica grupal en scrims, juego competitivo individual en SoloQ, revisión de partidas (VOD Review) y acondicionamiento físico orientado al rendimiento sostenido del atleta [1]. National Team Manager: <strong>Aníbal Hernández</strong>.</p>
+<div class="sg">
+<div class="sc"><div class="l">Disciplina</div><div class="v">League of Legends</div></div>
+<div class="sc"><div class="l">Scrims Semanales</div><div class="v">4 sesiones — Lun/Jue/Vie/Sáb · 8:00 PM</div></div>
+<div class="sc"><div class="l">SoloQ Mínimo</div><div class="v">20 partidas por semana</div></div>
+<div class="sc"><div class="l">Rango Mínimo</div><div class="v">Master — Servidor NA</div></div>
+<div class="sc"><div class="l">Físico Base</div><div class="v">2.5 hrs cardio / semana</div></div>
+<div class="sc"><div class="l">Físico Avanzado</div><div class="v">Pesas Upper/Lower · 4 días/semana</div></div>
+<div class="sc"><div class="l">National Team Manager</div><div class="v">Aníbal Hernández</div></div>
+<div class="sc"><div class="l">Vigencia</div><div class="v">2026 – 2027</div></div>
+</div>
+</div>
+<div class="s">
+<h2>🎮 1. Entrenamiento de Disciplina</h2>
+<h3>1.1 Scrims — Práctica Grupal Obligatoria</h3>
+<p>Los scrims son partidas de práctica interna contra otros equipos. Su asistencia es <strong>obligatoria</strong> para todos los jugadores de la división [1].</p>
+<div class="tw"><table>
+<thead><tr><th>Día</th><th>Actividad</th><th>Horario</th><th>Duración</th><th>Estado</th></tr></thead>
+<tbody>
+<tr><td><b>Lunes</b></td><td>Scrim Grupal</td><td>8:00–11:00 PM</td><td>3 horas</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Martes</b></td><td>SoloQ / VOD Review</td><td>Libre</td><td>Variable</td><td><span class="to fl">Flexible</span></td></tr>
+<tr><td><b>Miércoles</b></td><td>SoloQ / VOD Review</td><td>Libre</td><td>Variable</td><td><span class="to fl">Flexible</span></td></tr>
+<tr><td><b>Jueves</b></td><td>Scrim Grupal</td><td>8:00–11:00 PM</td><td>3 horas</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Viernes</b></td><td>Scrim Grupal</td><td>8:00–11:00 PM</td><td>3 horas</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Sábado</b></td><td>Scrim Grupal</td><td>8:00–11:00 PM</td><td>3 horas</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Domingo</b></td><td>SoloQ / Descanso</td><td>Libre</td><td>Variable</td><td><span class="to fl">Flexible</span></td></tr>
+</tbody></table></div>
+<h3>1.2 SoloQ — Cola Individual Clasificatoria</h3>
+<ul>
+<li><strong>Mínimo semanal:</strong> 20 partidas de SoloQ en servidor NA [1].</li>
+<li><strong>Rango mínimo:</strong> Master en Norte América [1].</li>
+<li>Distribuir partidas en días sin scrim (Mar/Mié/Dom) [1].</li>
+<li>Se recomienda distribuir las partidas a lo largo de la semana para evitar fatiga [1].</li>
+</ul>
+<h3>1.3 VOD Review — Revisión de Partidas</h3>
+<ul>
+<li>Revisar grabaciones propias y de equipos de alto rendimiento [1].</li>
+<li>Enfoque: macro-juego, gestión de recursos, visión de mapa, toma de decisiones [1].</li>
+</ul>
+</div>
+<div class="s">
+<h2>🏋️ 2. Entrenamiento Físico</h2>
+<p>Mejora la concentración, reduce la fatiga cognitiva y contribuye a la salud postural y visual [1].</p>
+<h3>2.1 Nivel Base — Cardio y Deporte</h3>
+<ul>
+<li><strong>Mínimo:</strong> 2.5 horas de cardio o deporte a la semana [1].</li>
+<li>Actividad libre: correr, nadar, ciclismo, fútbol, etc. [1]</li>
+<li>Mínimo 3 sesiones por semana [1].</li>
+</ul>
+<h3>2.2 Nivel Avanzado — Entrenamiento de Fuerza</h3>
+<p>Distribución Upper/Lower Body, <strong>4 días por semana</strong> [1].</p>
+<div class="tw"><table>
+<thead><tr><th>Sesión</th><th>Enfoque</th><th>Grupos Musculares</th></tr></thead>
+<tbody>
+<tr><td><b>Días 1 y 3</b></td><td>Upper Body</td><td>Pecho, Espalda, Hombros, Bíceps, Tríceps [1]</td></tr>
+<tr><td><b>Días 2 y 4</b></td><td>Lower Body</td><td>Cuádriceps, Isquiotibiales, Glúteos, Pantorrillas [1]</td></tr>
+</tbody></table></div>
+</div>
+<div class="s">
+<h2>📅 3. Calendario Semanal Consolidado</h2>
+<div class="tw"><table>
+<thead><tr><th>Día</th><th>Disciplina</th><th>Físico</th><th>Notas</th></tr></thead>
+<tbody>
+<tr><td><b>Lunes</b></td><td>Scrim 8 PM (3h)</td><td>Upper Body (1h)</td><td>Obligatorio [1]</td></tr>
+<tr><td><b>Martes</b></td><td>SoloQ + VOD</td><td>Lower Body (1h)</td><td>Cuota SoloQ [1]</td></tr>
+<tr><td><b>Miércoles</b></td><td>SoloQ + VOD</td><td>Cardio / Deporte</td><td>Nivel base [1]</td></tr>
+<tr><td><b>Jueves</b></td><td>Scrim 8 PM (3h)</td><td>Upper Body (1h)</td><td>Obligatorio [1]</td></tr>
+<tr><td><b>Viernes</b></td><td>Scrim 8 PM (3h)</td><td>Lower Body (1h)</td><td>Obligatorio [1]</td></tr>
+<tr><td><b>Sábado</b></td><td>Scrim 8 PM (3h)</td><td>Cardio / Deporte</td><td>Obligatorio [1]</td></tr>
+<tr><td><b>Domingo</b></td><td>SoloQ — cierre cuota</td><td>Descanso</td><td>Descanso activo [1]</td></tr>
+</tbody></table></div>
+</div>
+<div class="s">
+<h2>📊 4. Métricas de Seguimiento</h2>
+<div class="mg2">
+<div class="mc"><div class="mn">4</div><div class="ml">Scrims por semana</div></div>
+<div class="mc"><div class="mn">20</div><div class="ml">Partidas SoloQ mín.</div></div>
+<div class="mc"><div class="mn">Master</div><div class="ml">Rango mínimo NA</div></div>
+<div class="mc"><div class="mn">2.5h</div><div class="ml">Actividad física base</div></div>
+</div>
+</div>
+<div class="s">
+<h2>🤝 5. Conducta y Valores</h2>
+<div class="cb"><ul>
+<li>✅ El <strong>respeto entre compañeros</strong> es obligatorio en todo momento.</li>
+<li>🚫 Queda <strong>estrictamente prohibido</strong> el uso de groserías, insultos o lenguaje ofensivo.</li>
+<li>✅ <strong>Actitud constructiva</strong> ante errores propios y del equipo.</li>
+<li>✅ <strong>Puntualidad</strong> en scrims y sesiones.</li>
+<li>✅ Representar a Panamá con <strong>orgullo, disciplina y deportividad</strong>.</li>
+</ul></div>
+</div>
+<div class="s">
+<h2>📝 6. Notas Generales</h2>
+<div class="nb"><ul>
+<li>Programa general para toda la División de League of Legends [1].</li>
+<li>Notificar al staff en caso de lesión para ajustar el plan [1].</li>
+<li>Los scrims tienen <strong>prioridad absoluta</strong> [1].</li>
+<li>Sueño regular de <strong>7–9 horas</strong> [1].</li>
+<li>Hidratación y alimentación adecuadas [1].</li>
+<li>Reportar actividad semanal al cuerpo técnico [1].</li>
+<li>Contacto: National Team Manager <strong>Aníbal Hernández</strong>.</li>
+</ul></div>
+</div>
+</div>
+
+<!-- ===== TAB 2: STREET FIGHTER 6 ===== -->
+<div class="tp" id="t2">
+<div class="dt"><span style="font-size:24px">🥊</span> División Street Fighter 6 · 2026–2027</div>
+<div class="ex">
+<h2>📋 Resumen Ejecutivo</h2>
+<p>Programa oficial de la <strong>División Street Fighter 6</strong> de <strong>FEPAES</strong> para la temporada <strong>2026–2027</strong>. Combina práctica en ladder clasificatorio, trabajo técnico en laboratorio (combos y frame data), entrenamiento de reacción cognitiva y participación en torneos, complementado con acondicionamiento físico. National Team Manager: <strong>Aníbal Hernández</strong>.</p>
+<div class="sg">
+<div class="sc"><div class="l">Disciplina</div><div class="v">Street Fighter 6</div></div>
+<div class="sc"><div class="l">Ladder Mínimo</div><div class="v">8 horas semanales</div></div>
+<div class="sc"><div class="l">Lab Work</div><div class="v">1 – 2 horas semanales</div></div>
+<div class="sc"><div class="l">Rango Mínimo</div><div class="v">Master — Ladder SF6</div></div>
+<div class="sc"><div class="l">Torneos</div><div class="v">Virtuales y presenciales (sugeridos)</div></div>
+<div class="sc"><div class="l">Físico Base</div><div class="v">2.5 hrs cardio / semana</div></div>
+<div class="sc"><div class="l">Físico Avanzado</div><div class="v">Pesas Upper/Lower · 4 días/semana</div></div>
+<div class="sc"><div class="l">National Team Manager</div><div class="v">Aníbal Hernández</div></div>
+<div class="sc"><div class="l">Vigencia</div><div class="v">2026 – 2027</div></div>
+</div>
+</div>
+<div class="s">
+<h2>🥊 1. Entrenamiento de Disciplina</h2>
+<h3>1.1 Ladder Clasificatorio</h3>
+<ul>
+<li><strong>Mínimo semanal:</strong> 8 horas en el ladder oficial de SF6.</li>
+<li><strong>Rango mínimo:</strong> Master en el ladder oficial.</li>
+<li>Sesiones recomendadas de <strong>1.5 a 2 horas</strong>.</li>
+<li>Distribución libre durante la semana.</li>
+</ul>
+<h3>1.2 Trabajo en Laboratorio (Lab Work)</h3>
+<div class="hb"><ul>
+<li>⏱️ <strong>Mínimo semanal:</strong> 1 a 2 horas en modo laboratorio.</li>
+<li>🎯 <strong>Práctica de combos:</strong> Combos principales (punish, anti-air, corner, confirmaciones).</li>
+<li>📊 <strong>Estudio de Frame Data:</strong> Frames de ventaja/desventaja propios y del rival.</li>
+<li>⚡ <strong>Reacción:</strong> Anti-airs, parry timing, drive reversal punish.</li>
+<li>🔄 <strong>Matchups:</strong> Estudio del meta y práctica contra personajes frecuentes.</li>
+</ul></div>
+<h3>1.3 Entrenamiento de Reacción Cognitiva</h3>
+<ul>
+<li>🖱️ <strong>Herramientas online:</strong> Plataformas como <em>HumanBenchmark.com</em> para entrenar reacción visual.</li>
+<li>👁️ <strong>Tracking visual:</strong> Seguimiento de objetos en movimiento para lectura del oponente.</li>
+<li>🧠 <strong>Juegos de patrón y memoria:</strong> Memoria de trabajo y decisiones rápidas.</li>
+<li>🤸 <strong>Movilidad de manos y dedos:</strong> Estiramientos antes y después de cada sesión.</li>
+</ul>
+<h3>1.4 Torneos — Práctica Competitiva</h3>
+<div class="tw"><table>
+<thead><tr><th>Tipo</th><th>Modalidad</th><th>Recomendación</th></tr></thead>
+<tbody>
+<tr><td><b>Online</b></td><td>Virtual / Remoto</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+<tr><td><b>Locales</b></td><td>Presencial — Panamá</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+<tr><td><b>Regionales</b></td><td>LATAM</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+<tr><td><b>Capcom Pro Tour</b></td><td>Circuito Oficial</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+</tbody></table></div>
+<h3>1.5 Distribución Semanal Sugerida</h3>
+<div class="tw"><table>
+<thead><tr><th>Día</th><th>Actividad</th><th>Duración</th><th>Estado</th></tr></thead>
+<tbody>
+<tr><td><b>Lunes</b></td><td>Ladder SF6</td><td>2 hrs</td><td><span class="to ob">Cuota Semanal</span></td></tr>
+<tr><td><b>Martes</b></td><td>Lab Work — Combos / Frame Data</td><td>1–2 hrs</td><td><span class="to ob">Cuota Semanal</span></td></tr>
+<tr><td><b>Miércoles</b></td><td>Ladder SF6 + Reacción Cognitiva</td><td>2 hrs</td><td><span class="to ob">Cuota Semanal</span></td></tr>
+<tr><td><b>Jueves</b></td><td>Ladder SF6 + Lab Work</td><td>2 hrs</td><td><span class="to ob">Cuota Semanal</span></td></tr>
+<tr><td><b>Viernes</b></td><td>Ladder SF6 / Torneos Online</td><td>2 hrs</td><td><span class="to ob">Cuota Semanal</span></td></tr>
+<tr><td><b>Sábado</b></td><td>Torneos Presenciales / Online</td><td>Variable</td><td><span class="to su">Sugerido</span></td></tr>
+<tr><td><b>Domingo</b></td><td>Descanso / Recuperación</td><td>—</td><td><span class="to fl">Descanso</span></td></tr>
+</tbody></table></div>
+</div>
+<div class="s">
+<h2>🏋️ 2. Entrenamiento Físico</h2>
+<h3>2.1 Nivel Base</h3>
+<ul>
+<li><strong>Mínimo:</strong> 2.5 horas semanales de cardio o deporte.</li>
+<li>Distribuir en al menos 3 sesiones. El cardio mejora reacción y reduce fatiga mental.</li>
+</ul>
+<h3>2.2 Nivel Avanzado</h3>
+<div class="tw"><table>
+<thead><tr><th>Sesión</th><th>Enfoque</th><th>Grupos Musculares</th></tr></thead>
+<tbody>
+<tr><td><b>Días 1 y 3</b></td><td>Upper Body</td><td>Pecho, Espalda, Hombros, Bíceps, Tríceps</td></tr>
+<tr><td><b>Días 2 y 4</b></td><td>Lower Body</td><td>Cuádriceps, Isquiotibiales, Glúteos, Pantorrillas</td></tr>
+</tbody></table></div>
+<h3>2.3 Cuidado de Manos y Muñecas</h3>
+<ul>
+<li>🤲 Estiramientos de manos, dedos y muñecas antes y después de cada sesión.</li>
+<li>🔄 Movilidad articular para prevenir tendinitis.</li>
+<li>🧊 En caso de molestia, aplicar frío y notificar al staff.</li>
+</ul>
+</div>
+<div class="s">
+<h2>📊 3. Métricas de Seguimiento</h2>
+<div class="mg2">
+<div class="mc"><div class="mn">8h</div><div class="ml">Ladder semanal</div></div>
+<div class="mc"><div class="mn">1–2h</div><div class="ml">Lab Work semanal</div></div>
+<div class="mc"><div class="mn">Master</div><div class="ml">Rango mínimo SF6</div></div>
+<div class="mc"><div class="mn">2.5h</div><div class="ml">Actividad física base</div></div>
+<div class="mc"><div class="mn">🏆</div><div class="ml">Torneos recomendados</div></div>
+</div>
+</div>
+<div class="s">
+<h2>🤝 4. Conducta y Valores</h2>
+<div class="cb"><ul>
+<li>✅ <strong>Respeto entre compañeros</strong> obligatorio en todo momento.</li>
+<li>🚫 <strong>Prohibido</strong> el uso de groserías o insultos entre jugadores.</li>
+<li>✅ Actitud <strong>constructiva</strong> ante errores.</li>
+<li>✅ <strong>Puntualidad y compromiso</strong>.</li>
+<li>✅ Representar a Panamá con <strong>orgullo, disciplina y deportividad</strong>.</li>
+</ul></div>
+</div>
+<div class="s">
+<h2>📝 5. Notas Generales</h2>
+<div class="nb"><ul>
+<li>Programa general para toda la División de Street Fighter 6.</li>
+<li>En caso de lesión en manos o muñecas, notificar al staff de inmediato.</li>
+<li>Sueño regular de <strong>7–9 horas</strong>.</li>
+<li>Hidratación y alimentación adecuadas.</li>
+<li>Reportar actividad semanal al cuerpo técnico.</li>
+<li>Contacto: National Team Manager <strong>Aníbal Hernández</strong>.</li>
+</ul></div>
+</div>
+</div>
+<!-- ===== TAB 3: SIM RACING ===== -->
+<div class="tp" id="t3">
+<div class="dt"><span style="font-size:24px">🏎️</span> División Sim Racing — Gran Turismo 7 · 2026–2027</div>
+<div class="ex">
+<h2>📋 Resumen Ejecutivo</h2>
+<p>Programa oficial de la <strong>División Sim Racing</strong> de <strong>FEPAES</strong> para la temporada <strong>2026–2027</strong>, con plataforma principal en <strong>Gran Turismo 7</strong>. Integra sesiones de práctica en simulador, participación en torneos y acondicionamiento físico con énfasis en <strong>espalda, core y cuello</strong>. National Team Manager: <strong>Aníbal Hernández</strong>.</p>
+<div class="sg">
+<div class="sc"><div class="l">Disciplina</div><div class="v">Sim Racing — Gran Turismo 7</div></div>
+<div class="sc"><div class="l">Práctica Mínima</div><div class="v">16 horas semanales</div></div>
+<div class="sc"><div class="l">Días de Práctica</div><div class="v">Dom·Lun·Mar·Mié · 6–10 PM</div></div>
+<div class="sc"><div class="l">Torneos</div><div class="v">Virtuales y presenciales (incentivados)</div></div>
+<div class="sc"><div class="l">Físico Base</div><div class="v">2.5 hrs cardio / semana</div></div>
+<div class="sc"><div class="l">Físico Prioritario</div><div class="v">Espalda · Core · Cuello</div></div>
+<div class="sc"><div class="l">Físico Avanzado</div><div class="v">Pesas Upper/Lower · 4 días/semana</div></div>
+<div class="sc"><div class="l">National Team Manager</div><div class="v">Aníbal Hernández</div></div>
+<div class="sc"><div class="l">Vigencia</div><div class="v">2026 – 2027</div></div>
+</div>
+</div>
+<div class="s">
+<h2>🏎️ 1. Entrenamiento de Disciplina</h2>
+<h3>1.1 Sesiones en Simulador</h3>
+<ul>
+<li><strong>Mínimo semanal:</strong> 16 horas de práctica en simulador.</li>
+<li><strong>Plataforma:</strong> Gran Turismo 7 (PS4/PS5).</li>
+<li>Trabajo de dominio del vehículo, circuitos, consistencia y estrategia.</li>
+</ul>
+<div class="tw"><table>
+<thead><tr><th>Día</th><th>Actividad</th><th>Horario</th><th>Duración</th><th>Estado</th></tr></thead>
+<tbody>
+<tr><td><b>Domingo</b></td><td>Práctica / Torneos</td><td>6:00–10:00 PM</td><td>4 horas</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Lunes</b></td><td>Práctica en Simulador</td><td>6:00–10:00 PM</td><td>4 horas</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Martes</b></td><td>Práctica en Simulador</td><td>6:00–10:00 PM</td><td>4 horas</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Miércoles</b></td><td>Práctica / Revisión</td><td>6:00–10:00 PM</td><td>4 horas</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Jueves</b></td><td>Físico / Descanso</td><td>Libre</td><td>Variable</td><td><span class="to fl">Recuperación</span></td></tr>
+<tr><td><b>Viernes</b></td><td>Físico / Descanso</td><td>Libre</td><td>Variable</td><td><span class="to fl">Recuperación</span></td></tr>
+<tr><td><b>Sábado</b></td><td>Torneos</td><td>Variable</td><td>Variable</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+</tbody></table></div>
+<h3>1.2 Torneos</h3>
+<div class="tw"><table>
+<thead><tr><th>Tipo</th><th>Modalidad</th><th>Recomendación</th></tr></thead>
+<tbody>
+<tr><td><b>Online GT7</b></td><td>Sport Mode</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+<tr><td><b>Locales</b></td><td>Presencial — Panamá</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+<tr><td><b>Ligas LATAM</b></td><td>Online / Presencial</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+<tr><td><b>FIA Certified</b></td><td>Circuito Oficial GT7</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+</tbody></table></div>
+</div>
+<div class="s">
+<h2>🏋️ 2. Entrenamiento Físico</h2>
+<p>El Sim Racing genera desgaste significativo en <strong>espalda, core y cuello</strong> por la postura sostenida.</p>
+<h3>2.1 Nivel Base</h3>
+<ul>
+<li><strong>Mínimo:</strong> 2.5 horas de cardio o deporte semanal.</li>
+<li>Mejora oxigenación cerebral y reduce fatiga en sesiones largas.</li>
+</ul>
+<h3>2.2 Zonas Prioritarias — Sim Racing</h3>
+<div class="fe"><ul>
+<li>🔶 <strong>Core:</strong> Plancha, dead bug, bird dog, hollow body.</li>
+<li>🔶 <strong>Espalda:</strong> Remo con mancuerna, pull-down, extensiones lumbares, superman.</li>
+<li>🔶 <strong>Cuello:</strong> Isométricos cervicales, movilidad cervical, rotaciones controladas.</li>
+</ul></div>
+<h3>2.3 Nivel Avanzado</h3>
+<div class="tw"><table>
+<thead><tr><th>Sesión</th><th>Enfoque</th><th>Énfasis Sim Racing</th></tr></thead>
+<tbody>
+<tr><td><b>Días 1 y 3</b></td><td>Upper Body + Core + Cuello</td><td>Espalda, Hombros, Brazos + Core + Cervical</td></tr>
+<tr><td><b>Días 2 y 4</b></td><td>Lower Body + Core</td><td>Piernas + Plancha / Estabilización</td></tr>
+</tbody></table></div>
+<h3>2.4 Calendario Semanal Consolidado</h3>
+<div class="tw"><table>
+<thead><tr><th>Día</th><th>Disciplina</th><th>Físico</th><th>Notas</th></tr></thead>
+<tbody>
+<tr><td><b>Domingo</b></td><td>Simulador 6–10 PM</td><td>Estiramientos pre/post</td><td>Inicio de semana</td></tr>
+<tr><td><b>Lunes</b></td><td>Simulador 6–10 PM</td><td>Upper Body + Core (AM)</td><td>Separar físico de sesión</td></tr>
+<tr><td><b>Martes</b></td><td>Simulador 6–10 PM</td><td>Lower Body + Core (AM)</td><td>Separar físico de sesión</td></tr>
+<tr><td><b>Miércoles</b></td><td>Simulador 6–10 PM</td><td>Upper Body + Cuello (AM)</td><td>Cierre del bloque</td></tr>
+<tr><td><b>Jueves</b></td><td>Descanso activo</td><td>Cardio / Deporte (2.5h)</td><td>Recuperación</td></tr>
+<tr><td><b>Viernes</b></td><td>Descanso activo</td><td>Lower Body + Cardio</td><td>Recuperación activa</td></tr>
+<tr><td><b>Sábado</b></td><td>Torneos</td><td>Movilidad y estiramientos</td><td>Preparación dominical</td></tr>
+</tbody></table></div>
+</div>
+<div class="s">
+<h2>📊 3. Métricas de Seguimiento</h2>
+<div class="mg2">
+<div class="mc"><div class="mn">16h</div><div class="ml">Práctica semanal simulador</div></div>
+<div class="mc"><div class="mn">4</div><div class="ml">Sesiones obligatorias</div></div>
+<div class="mc"><div class="mn">2.5h</div><div class="ml">Actividad física base</div></div>
+<div class="mc"><div class="mn">🏆</div><div class="ml">Torneos incentivados</div></div>
+<div class="mc"><div class="mn">💪</div><div class="ml">Core · Espalda · Cuello</div></div>
+</div>
+</div>
+<div class="s">
+<h2>🤝 4. Conducta y Valores</h2>
+<div class="cb"><ul>
+<li>✅ <strong>Respeto entre compañeros</strong> obligatorio en todo momento.</li>
+<li>🚫 <strong>Prohibido</strong> el uso de groserías o insultos entre jugadores.</li>
+<li>✅ Actitud <strong>profesional y constructiva</strong>.</li>
+<li>✅ <strong>Puntualidad</strong> en cada sesión de simulador.</li>
+<li>✅ Representar a Panamá con <strong>orgullo, disciplina y deportividad</strong>.</li>
+</ul></div>
+</div>
+<div class="s">
+<h2>📝 5. Notas Generales</h2>
+<div class="nb"><ul>
+<li>Programa general para toda la División de Sim Racing.</li>
+<li><strong>Estiramientos de cuello, espalda y hombros</strong> antes y después de cada sesión.</li>
+<li>Notificar al staff en caso de molestias.</li>
+<li>Sueño regular de <strong>7–9 horas</strong>.</li>
+<li>Hidratación y postura correcta durante sesiones.</li>
+<li>Reportar horas de simulador, torneos y actividad física semanalmente.</li>
+<li>Contacto: National Team Manager <strong>Aníbal Hernández</strong>.</li>
+</ul></div>
+</div>
+</div>
+
+<!-- ===== TAB 4: eFOOTBALL ===== -->
+<div class="tp" id="t4">
+<div class="dt"><span style="font-size:24px">⚽</span> División eFootball · 2026–2027</div>
+<div class="ex">
+<h2>📋 Resumen Ejecutivo</h2>
+<p>Programa oficial de la <strong>División eFootball</strong> de <strong>FEPAES</strong> para la temporada <strong>2026–2027</strong>. Establece sesiones de práctica diaria de lunes a viernes (virtual o presencial), participación prioritaria en torneos, análisis de video (VOD Review) y estudio táctico de formaciones y tendencias del meta. National Team Manager: <strong>Aníbal Hernández</strong>.</p>
+<div class="sg">
+<div class="sc"><div class="l">Disciplina</div><div class="v">eFootball (Konami)</div></div>
+<div class="sc"><div class="l">Práctica Diaria</div><div class="v">2.5 hrs — Lunes a Viernes</div></div>
+<div class="sc"><div class="l">Total Semanal</div><div class="v">12.5 horas mínimo</div></div>
+<div class="sc"><div class="l">Modalidad</div><div class="v">Virtual o Presencial</div></div>
+<div class="sc"><div class="l">Torneos</div><div class="v">Locales y virtuales (priorizados)</div></div>
+<div class="sc"><div class="l">Análisis Táctico</div><div class="v">VOD Review + Formaciones + Trends</div></div>
+<div class="sc"><div class="l">Físico Base</div><div class="v">2.5 hrs cardio / semana</div></div>
+<div class="sc"><div class="l">Físico Avanzado</div><div class="v">Pesas Upper/Lower · 4 días/semana</div></div>
+<div class="sc"><div class="l">National Team Manager</div><div class="v">Aníbal Hernández</div></div>
+<div class="sc"><div class="l">Vigencia</div><div class="v">2026 – 2027</div></div>
+</div>
+</div>
+<div class="s">
+<h2>⚽ 1. Entrenamiento de Disciplina</h2>
+<h3>1.1 Sesiones de Práctica — Lunes a Viernes</h3>
+<p>Cada atleta debe cumplir <strong>2.5 horas de práctica diaria de lunes a viernes</strong>, de forma <strong>virtual o presencial</strong>.</p>
+<div class="tw"><table>
+<thead><tr><th>Día</th><th>Actividad</th><th>Duración</th><th>Modalidad</th><th>Estado</th></tr></thead>
+<tbody>
+<tr><td><b>Lunes</b></td><td>Práctica eFootball</td><td>2.5 hrs</td><td>Virtual / Presencial</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Martes</b></td><td>Práctica eFootball</td><td>2.5 hrs</td><td>Virtual / Presencial</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Miércoles</b></td><td>Práctica eFootball</td><td>2.5 hrs</td><td>Virtual / Presencial</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Jueves</b></td><td>Práctica eFootball</td><td>2.5 hrs</td><td>Virtual / Presencial</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Viernes</b></td><td>Práctica eFootball</td><td>2.5 hrs</td><td>Virtual / Presencial</td><td><span class="to ob">Obligatorio</span></td></tr>
+<tr><td><b>Sábado</b></td><td>Torneos Locales / Online</td><td>Variable</td><td>Presencial / Virtual</td><td><span class="to su">Priorizado</span></td></tr>
+<tr><td><b>Domingo</b></td><td>Descanso / VOD Review</td><td>Variable</td><td>Libre</td><td><span class="to fl">Flexible</span></td></tr>
+</tbody></table></div>
+<h3>1.2 Torneos — Participación Prioritaria</h3>
+<p>La participación en torneos locales y virtuales es <strong>prioritaria</strong>. Los torneos proporcionan el mejor ambiente para medir progreso y competir bajo presión real.</p>
+<div class="tw"><table>
+<thead><tr><th>Tipo</th><th>Modalidad</th><th>Recomendación</th></tr></thead>
+<tbody>
+<tr><td><b>Locales</b></td><td>Presencial — Panamá</td><td><span class="to su">Priorizado</span></td></tr>
+<tr><td><b>Online</b></td><td>Virtual / Remoto</td><td><span class="to su">Priorizado</span></td></tr>
+<tr><td><b>Regionales LATAM</b></td><td>Online / Presencial</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+<tr><td><b>eFootball Championship</b></td><td>Circuito Oficial Konami</td><td><span class="to su">Fuertemente Sugerido</span></td></tr>
+</tbody></table></div>
+<h3>1.3 Análisis Táctico y VOD Review</h3>
+<div class="hb"><ul>
+<li>📹 <strong>VOD Review:</strong> Revisar grabaciones propias para identificar errores tácticos, patrones defensivos y oportunidades de mejora.</li>
+<li>📋 <strong>Estudio de formaciones:</strong> Experimentar y analizar diferentes formaciones y estilos de juego para adaptar estrategia al rival.</li>
+<li>📈 <strong>Trends y meta:</strong> Mantenerse actualizado con tendencias del meta: cambios de parches, nuevas cartas de jugadores, tácticas populares.</li>
+<li>🎥 <strong>Estudio de rivales:</strong> Cuando sea posible, analizar el estilo de rivales de torneos próximos.</li>
+</ul></div>
+</div>
+<div class="s">
+<h2>🏋️ 2. Entrenamiento Físico</h2>
+<p>Mismo estándar general de FEPAES, orientado a mantener la salud, concentración y resistencia cognitiva.</p>
+<h3>2.1 Nivel Base</h3>
+<ul>
+<li><strong>Mínimo:</strong> 2.5 horas de cardio o deporte semanal.</li>
+<li>Actividad libre: fútbol recreativo, correr, nadar, ciclismo, etc.</li>
+<li>Distribuir en al menos 3 sesiones.</li>
+</ul>
+<h3>2.2 Nivel Avanzado</h3>
+<div class="tw"><table>
+<thead><tr><th>Sesión</th><th>Enfoque</th><th>Grupos Musculares</th></tr></thead>
+<tbody>
+<tr><td><b>Días 1 y 3</b></td><td>Upper Body</td><td>Pecho, Espalda, Hombros, Bíceps, Tríceps</td></tr>
+<tr><td><b>Días 2 y 4</b></td><td>Lower Body</td><td>Cuádriceps, Isquiotibiales, Glúteos, Pantorrillas</td></tr>
+</tbody></table></div>
+</div>
+<div class="s">
+<h2>📅 3. Calendario Semanal Consolidado</h2>
+<div class="tw"><table>
+<thead><tr><th>Día</th><th>Disciplina</th><th>Físico</th><th>Notas</th></tr></thead>
+<tbody>
+<tr><td><b>Lunes</b></td><td>Práctica eFootball (2.5h)</td><td>Upper Body (1h)</td><td>Obligatorio</td></tr>
+<tr><td><b>Martes</b></td><td>Práctica eFootball (2.5h)</td><td>Lower Body (1h)</td><td>Obligatorio</td></tr>
+<tr><td><b>Miércoles</b></td><td>Práctica eFootball (2.5h)</td><td>Cardio / Deporte</td><td>Obligatorio</td></tr>
+<tr><td><b>Jueves</b></td><td>Práctica eFootball (2.5h)</td><td>Upper Body (1h)</td><td>Obligatorio</td></tr>
+<tr><td><b>Viernes</b></td><td>Práctica eFootball (2.5h)</td><td>Lower Body (1h)</td><td>Obligatorio</td></tr>
+<tr><td><b>Sábado</b></td><td>Torneos locales / online</td><td>Cardio / Deporte</td><td>Priorizado</td></tr>
+<tr><td><b>Domingo</b></td><td>VOD Review / Descanso</td><td>Descanso</td><td>Análisis táctico recomendado</td></tr>
+</tbody></table></div>
+</div>
+<div class="s">
+<h2>📊 4. Métricas de Seguimiento</h2>
+<div class="mg2">
+<div class="mc"><div class="mn">12.5h</div><div class="ml">Práctica semanal mínima</div></div>
+<div class="mc"><div class="mn">5</div><div class="ml">Sesiones obligatorias L-V</div></div>
+<div class="mc"><div class="mn">2.5h</div><div class="ml">Actividad física base</div></div>
+<div class="mc"><div class="mn">🏆</div><div class="ml">Torneos priorizados</div></div>
+<div class="mc"><div class="mn">📊</div><div class="ml">VOD Review + Táctico</div></div>
+</div>
+</div>
+<div class="s">
+<h2>🤝 5. Conducta y Valores</h2>
+<div class="cb"><ul>
+<li>✅ <strong>Respeto entre compañeros</strong> obligatorio en todo momento.</li>
+<li>🚫 <strong>Prohibido</strong> el uso de groserías o insultos entre jugadores.</li>
+<li>✅ Actitud <strong>constructiva</strong> ante errores.</li>
+<li>✅ <strong>Puntualidad y compromiso</strong> con las sesiones.</li>
+<li>✅ Representar a Panamá con <strong>orgullo, disciplina y deportividad</strong>.</li>
+</ul></div>
+</div>
+<div class="s">
+<h2>📝 6. Notas Generales</h2>
+<div class="nb"><ul>
+<li>Programa general para toda la División de eFootball.</li>
+<li>La práctica puede realizarse de forma <strong>virtual o presencial</strong> según disponibilidad.</li>
+<li>Se recomienda dedicar tiempo del domingo a <strong>análisis táctico, VOD review y estudio de meta</strong>.</li>
+<li>Sueño regular de <strong>7–9 horas</strong>.</li>
+<li>Hidratación y alimentación adecuadas.</li>
+<li>Reportar actividad semanal al cuerpo técnico.</li>
+<li>Contacto: National Team Manager <strong>Aníbal Hernández</strong>.</li>
+</ul></div>
+</div>
+</div>
+
+</main>
+
+<footer>
+<strong>FEPAES — Federación Panameña de Esports</strong><br/>
+Programa Nacional de Entrenamiento · Temporada 2026–2027<br/>
+National Team Manager: Aníbal Hernández<br/><br/>
+Divisiones: League of Legends · Street Fighter 6 · Sim Racing (GT7) · eFootball<br/>
+Documento de uso interno — Todos los derechos reservados 🇵🇦
+</footer>
+
+<script>
+function ot(e,id){
+document.querySelectorAll('.tp').forEach(t=>t.classList.remove('on'));
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('on'));
+document.getElementById(id).classList.add('on');
+e.currentTarget.classList.add('on');
+window.scrollTo({top:document.querySelector('nav').offsetTop,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
